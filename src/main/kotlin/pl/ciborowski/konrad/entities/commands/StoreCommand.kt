@@ -8,7 +8,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class StoreCommand : Command() {
 
-    override val mnemonic = STORE
+    override val mnemonic get() = STORE
     override fun execute(computer: DC2, operand: Operand) {
         val cellNumber = calculateOperandValue(operand, computer.memory, computer.accumulator)
         computer.memory.insert(cellNumber, computer.accumulator)

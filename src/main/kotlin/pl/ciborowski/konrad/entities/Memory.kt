@@ -8,9 +8,9 @@ class Memory(val size: Int) {
         cells[cell] = DataMemoryCell(value)
     }
 
-    fun insert(cell: Int, command: Command, operand: Operand) {
+    fun insert(cell: Int, instruction: Instruction) {
         require(cell >= 0 && cell < size)
-        cells[cell] = CommandMemoryCell(command, operand)
+        cells[cell] = InstructionMemoryCell(instruction)
     }
 
     fun readNumericValue(cell: Int) : Int {

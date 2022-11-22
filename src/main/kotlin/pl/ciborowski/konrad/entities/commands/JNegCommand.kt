@@ -8,7 +8,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class JNegCommand : Command() {
 
-    override val mnemonic = JNEG
+    override val mnemonic get() = JNEG
     override fun execute(computer: DC2, operand: Operand) {
         if (computer.accumulator < 0) {
             computer.programCounter = calculateOperandValue(operand, computer.memory, computer.accumulator)

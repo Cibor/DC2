@@ -7,7 +7,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class StopCommand : Command() {
 
-    override val mnemonic = STOP
+    override val mnemonic get() = STOP
     override fun execute(computer: DC2, operand: Operand) {
         computer.programCounter = -1
     }

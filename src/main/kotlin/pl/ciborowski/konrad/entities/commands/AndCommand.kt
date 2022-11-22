@@ -8,7 +8,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class AndCommand : Command() {
 
-    override val mnemonic = AND
+    override val mnemonic get() = AND
     override fun execute(computer: DC2, operand: Operand) {
         computer.accumulator = computer.accumulator and calculateOperandValue(operand, computer.memory, computer.accumulator)
     }

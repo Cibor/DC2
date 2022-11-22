@@ -8,7 +8,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class ShrCommand : Command() {
 
-    override val mnemonic = SHL
+    override val mnemonic get() = SHL
     override fun execute(computer: DC2, operand: Operand) {
         computer.accumulator = computer.accumulator shr calculateOperandValue(operand, computer.memory, computer.accumulator)
     }

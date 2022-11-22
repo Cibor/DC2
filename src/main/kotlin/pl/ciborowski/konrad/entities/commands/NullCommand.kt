@@ -7,7 +7,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class NullCommand : Command() {
 
-    override val mnemonic = NULL
+    override val mnemonic get() = NULL
     override fun execute(computer: DC2, operand: Operand) {
         return
     }

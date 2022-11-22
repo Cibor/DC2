@@ -8,7 +8,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class XorCommand : Command() {
 
-    override val mnemonic = XOR
+    override val mnemonic get() = XOR
     override fun execute(computer: DC2, operand: Operand) {
         computer.accumulator = computer.accumulator xor calculateOperandValue(operand, computer.memory, computer.accumulator)
     }

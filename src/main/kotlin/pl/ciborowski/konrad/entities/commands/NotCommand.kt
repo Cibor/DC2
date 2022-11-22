@@ -7,7 +7,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class NotCommand : Command() {
 
-    override val mnemonic = NOT
+    override val mnemonic get() = NOT
     override fun execute(computer: DC2, operand: Operand) {
         computer.accumulator = computer.accumulator.inv()
     }

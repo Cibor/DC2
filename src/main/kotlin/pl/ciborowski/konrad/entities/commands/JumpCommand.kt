@@ -8,7 +8,7 @@ import pl.ciborowski.konrad.entities.Operand
 
 class JumpCommand : Command() {
 
-    override val mnemonic = JUMP
+    override val mnemonic get() = JUMP
     override fun execute(computer: DC2, operand: Operand) {
         computer.programCounter = calculateOperandValue(operand, computer.memory, computer.accumulator)
     }

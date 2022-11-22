@@ -40,11 +40,12 @@ class StoreCommandTest : CommandTest() {
 
     @Test
     fun test_offset_address_mode() {
+        computer.memory.insert(4, 2)
         computer.accumulator = 1
         val operand = Operand(OFFSET, 2)
         computer.invokeCommand(StoreCommand(), operand)
         assertEquals(1, computer.accumulator)
-        assertMemoryEquals(intArrayOf(0, 0, 0, 1, 5))
+        assertMemoryEquals(intArrayOf(0, 5, 0, 1, 0))
     }
 
     @Test

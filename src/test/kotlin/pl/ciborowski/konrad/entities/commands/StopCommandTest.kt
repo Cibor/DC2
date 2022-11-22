@@ -13,5 +13,6 @@ class StopCommandTest : CommandTest() {
         computer.invokeCommand(StopCommand(), operand)
         assertEquals(0, computer.accumulator)
         assertMemoryEquals(intArrayOf(0, 0, 0, 0, 0))
+        assertEquals(-1, computer.programCounter)
     }
 }

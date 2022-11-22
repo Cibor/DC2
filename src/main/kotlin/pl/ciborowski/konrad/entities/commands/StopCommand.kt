@@ -9,6 +9,6 @@ class StopCommand : Command() {
 
     override val mnemonic = STOP
     override fun execute(computer: DC2, operand: Operand) {
-        return
+        computer.programCounter = -1
     }
 }

@@ -13,9 +13,13 @@ class Memory(val size: Int) {
         cells[cell] = CommandMemoryCell(command, operand)
     }
 
-    fun read(cell: Int) : Int {
+    fun readNumericValue(cell: Int) : Int {
         require(cell >= 0 && cell < size)
         return cells[cell].numericValue()
+    }
+
+    fun readCell(cell: Int) : MemoryCell {
+        return cells[cell]
     }
 
 }

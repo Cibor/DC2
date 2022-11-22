@@ -1,6 +1,8 @@
 package pl.ciborowski.konrad.entities
 
-abstract class Command(val mnemonic: Mnemonic)  {
+abstract class Command {
 
-    abstract fun execute(operand: Operand)
+    abstract val mnemonic: Mnemonic
+
+    abstract fun execute(computer: DC2, operand: Operand)
 }

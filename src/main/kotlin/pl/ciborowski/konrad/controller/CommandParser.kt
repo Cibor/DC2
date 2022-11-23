@@ -9,7 +9,7 @@ class CommandParser {}
 
 fun parse(line: String) : Instruction {
     val instructionRegex = """([A-Z]+)\s+([.*@+])\s+([+-]*\d+)""".toRegex()
-    require(instructionRegex.matches(line))
+    require(instructionRegex.matches(line)) { " Instruction $line has incorrect format " }
 
     val matchResult = instructionRegex.find(line)
     val mnemonicName = matchResult!!.groups[1]?.value

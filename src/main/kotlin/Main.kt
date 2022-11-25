@@ -2,7 +2,6 @@ import pl.ciborowski.konrad.controller.TaskFileParser
 import pl.ciborowski.konrad.entities.DC2
 
 fun main(args: Array<String>) {
-    println("Hello World!")
 
     val fileName: String
     if (args.size > 0) {
@@ -25,5 +24,5 @@ fun main(args: Array<String>) {
         computer.memory.insert(cell, instruction)
         cell++
     }
-
+    computer.run()
 }

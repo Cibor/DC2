@@ -21,7 +21,7 @@ class DC2(val memorySize: Int) {
             val command = instructionCell.instruction.command
             val operand = instructionCell.instruction.operand
             invokeCommand(command, operand)
-            if (!command.isJump()) {
+            if (!command.modifiesProgramCounter()) {
                 programCounter++
             }
         } while (programCounter >= 0)

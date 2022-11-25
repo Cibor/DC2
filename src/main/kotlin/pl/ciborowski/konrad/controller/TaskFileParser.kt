@@ -19,10 +19,12 @@ class TaskFileParser(val fileName: String) {
             if (line.trim() == "DATA:") {
                 dataSegment = true
                 programSegment = false
+                continue
             }
             if (line.trim() == "PROGRAM:") {
                 dataSegment = false
                 programSegment = true
+                continue
             }
             if (dataSegment) {
                 dataLines.add(line)

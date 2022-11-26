@@ -11,16 +11,19 @@ fun main(args: Array<String>) {
     }
 
     val taskFileParser = TaskFileParser(fileName)
-    val computer = DC2(memorySize = 512)
+    val content = taskFileParser.readFileContent()
+    val configuration = taskFileParser.createConfiguration(content)
+    val instructions = taskFileParser.parseProgramSegment(content.programLines)
 
-    val content = taskFileParser.parse()
+    val computer = DC2(configuration)
 
-    content.data.forEach { entry ->
+    val data = taskFileParser.parseDataSegment(content.dataLines)
+    data.forEach { entry ->
         computer.memory.insert(entry.key, entry.value)
     }
 
     var cell = 0
-    for ( instruction in content.instructions) {
+    for ( instruction in instructions) {
         computer.memory.insert(cell, instruction)
         cell++
     }

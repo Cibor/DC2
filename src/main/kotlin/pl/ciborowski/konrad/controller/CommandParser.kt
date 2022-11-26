@@ -5,7 +5,7 @@ import pl.ciborowski.konrad.entities.Instruction
 import pl.ciborowski.konrad.entities.Mnemonic
 import pl.ciborowski.konrad.entities.Operand
 
-fun parse(line: String) : Instruction {
+fun readFileContent(line: String) : Instruction {
     val instructionRegex = """([A-Z]+)\s+([.*@+])\s+([+-]*\d+)""".toRegex()
     require(instructionRegex.matches(line)) { " Instruction $line has incorrect format " }
 

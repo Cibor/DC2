@@ -15,4 +15,5 @@ abstract class Command {
     override fun hashCode(): Int {
         return mnemonic.hashCode()
     }
+
 }

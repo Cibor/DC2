@@ -2,16 +2,17 @@ package pl.ciborowski.konrad.entities.commands
 
 import org.junit.jupiter.api.BeforeEach
 import pl.ciborowski.konrad.entities.DC2
+import pl.ciborowski.konrad.entities.DC2Config
 import pl.ciborowski.konrad.entities.MemoryCellType.DATA
 
 open class CommandTest {
 
     fun assertMemoryEquals(values: IntArray) : Boolean {
-        if (values.size != computer.memorySize) {
+        if (values.size != computer.configuration.memorySize) {
             return false
         }
 
-        for (i in 0 until computer.memorySize - 1) {
+        for (i in 0 until computer.configuration.memorySize - 1) {
             val cell = computer.memory.readCell(i)
             if (cell.type() != DATA ||  cell.numericValue() != values[i]) {
                 return false
@@ -24,6 +25,7 @@ open class CommandTest {
 
     @BeforeEach
     protected fun setUp() {
-        computer = DC2(5)
+        DC2Config(5, sortedSetOf(), false)
+        computer = DC2(DC2Config(5, sortedSetOf(), false))
     }
 }

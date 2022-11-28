@@ -42,6 +42,9 @@ class DC2(val configuration: DC2Config) {
                 printState()
             }
         } while (programCounter >= 0)
+        if (!debugMode) {
+            printState()
+        }
     }
 
     private fun printState() {

@@ -11,5 +11,6 @@ class LoadCommand : Command() {
     override val mnemonic get() = LOAD
     override fun execute(computer: DC2, operand: Operand) {
         computer.accumulator = calculateOperandValue(operand, computer.memory, computer.accumulator)
+        computer.programCounter++
     }
 }

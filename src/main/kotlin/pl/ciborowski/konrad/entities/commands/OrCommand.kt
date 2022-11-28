@@ -11,5 +11,6 @@ class OrCommand : Command() {
     override val mnemonic get() = OR
     override fun execute(computer: DC2, operand: Operand) {
         computer.accumulator = computer.accumulator or calculateOperandValue(operand, computer.memory, computer.accumulator)
+        computer.programCounter++
     }
 }

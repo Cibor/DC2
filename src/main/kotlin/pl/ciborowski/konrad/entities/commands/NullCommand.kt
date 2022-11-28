@@ -9,6 +9,6 @@ class NullCommand : Command() {
 
     override val mnemonic get() = NULL
     override fun execute(computer: DC2, operand: Operand) {
-        return
+        computer.programCounter++
     }
 }

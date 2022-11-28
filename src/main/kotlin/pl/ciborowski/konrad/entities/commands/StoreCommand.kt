@@ -12,5 +12,6 @@ class StoreCommand : Command() {
     override fun execute(computer: DC2, operand: Operand) {
         val cellNumber = calculateOperandValue(operand, computer.memory, computer.accumulator)
         computer.memory.insert(cellNumber, computer.accumulator)
+        computer.programCounter++
     }
 }

@@ -33,9 +33,6 @@ class DC2(val configuration: DC2Config) {
             val command = instructionCell.instruction.command
             val operand = instructionCell.instruction.operand
             invokeCommand(command, operand)
-            if (!command.modifiesProgramCounter()) {
-                programCounter++
-            }
             if (debugMode) {
                 printInstruction(Instruction(command, operand))
                 print("\t")

@@ -10,5 +10,6 @@ class NotCommand : Command() {
     override val mnemonic get() = NOT
     override fun execute(computer: DC2, operand: Operand) {
         computer.accumulator = computer.accumulator.inv()
+        computer.programCounter++
     }
 }

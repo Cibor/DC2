@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     if (args.size > 0) {
         fileName = args[0]
     } else {
-        fileName = "/Users/konradciborowski/asm/task.asm"
+        fileName = "/Users/konradciborowski/asm/task1.asm"
     }
 
     val taskFileParser = TaskFileParser(fileName)

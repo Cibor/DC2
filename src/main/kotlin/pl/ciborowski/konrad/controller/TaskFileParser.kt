@@ -136,7 +136,7 @@ class TaskFileParser(val fileName: String) {
         val rangeEnd = matchResult.groups[2]?.value!!.toInt()
         require(rangeStart < rangeEnd) { " The ends of the range $range are incorrect " }
         val cellsNumbersInRange = mutableSetOf<Int>()
-        for (cellNumber in rangeStart until rangeEnd) {
+        for (cellNumber in rangeStart until rangeEnd + 1) {
             cellsNumbersInRange.add(cellNumber)
         }
         return cellsNumbersInRange.toSet()

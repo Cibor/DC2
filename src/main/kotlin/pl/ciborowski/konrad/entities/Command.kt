@@ -6,8 +6,6 @@ abstract class Command {
 
     abstract fun execute(computer: DC2, operand: Operand)
 
-     open fun modifiesProgramCounter() = false
-
     override fun equals(other: Any?): Boolean =
         other is Command &&
                 this.mnemonic == other.mnemonic

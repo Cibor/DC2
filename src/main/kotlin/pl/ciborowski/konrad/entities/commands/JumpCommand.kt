@@ -10,8 +10,6 @@ class JumpCommand : Command() {
 
     override val mnemonic get() = JUMP
 
-    override fun modifiesProgramCounter() = true
-
     override fun execute(computer: DC2, operand: Operand) {
         computer.programCounter = calculateOperandValue(operand, computer.memory, computer.accumulator)
     }

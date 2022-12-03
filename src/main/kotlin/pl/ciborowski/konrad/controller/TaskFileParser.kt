@@ -65,14 +65,15 @@ class TaskFileParser(val fileName: String) {
     }
 
 
-    fun parseProgramSegment(programlines: List<String>?): List<Instruction> {
+    fun parseProgramSegment(programlines: List<String>?): SortedMap<Int, Instruction> {
         require (programlines != null) { " Program segment is missing " }
-        val instructions = mutableListOf<Instruction>()
+        val instructions = mutableMapOf<Int, Instruction>()
         for (line in programlines) {
-            instructions.add(readFileContent(line))
+            val instructionLine = readFileContent(line)
+            instructions.put(instructionLine.first, instructionLine.second)
         }
         require (instructions.isNotEmpty()) { " Program segment is empty " }
-        return instructions.toList()
+        return instructions.toSortedMap()
     }
 
     fun parseDataSegment(dataSegmentlines: List<String>?): Map<Int, Int> {

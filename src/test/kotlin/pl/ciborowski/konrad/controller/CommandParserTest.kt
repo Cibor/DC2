@@ -12,14 +12,14 @@ class CommandParserTest {
 
     @Test
     fun test_correct_instructions() {
-        assertEquals(Instruction(NullCommand(), Operand(IMMEDIATE, 0)), readFileContent("NULL  . 0"))
-        assertEquals(Instruction(LoadCommand(), Operand(IMMEDIATE, 12)), readFileContent("LOAD .  12"))
-        assertEquals(Instruction(SubCommand(), Operand(DIRECT, 12)), readFileContent("SUB  @  12"))
-        assertEquals(Instruction(StoreCommand(), Operand(IMMEDIATE, 13)), readFileContent("STORE  . 13"))
-        assertEquals(Instruction(StopCommand(), Operand(IMMEDIATE, 0)), readFileContent("STOP .   0"))
-        assertEquals(Instruction(JZeroCommand(), Operand(IMMEDIATE, 5)), readFileContent("JZERO  . 5"))
-        assertEquals(Instruction(ShlCommand(), Operand(INDIRECT, 10)), readFileContent("SHL  * 10"))
-        assertEquals(Instruction(LoadCommand(), Operand(OFFSET, -5)), readFileContent("LOAD +   -5"))
+        assertEquals(Instruction(NullCommand(), Operand(IMMEDIATE, 0)), readFileContent("1: NULL  . 0").second)
+        assertEquals(Instruction(LoadCommand(), Operand(IMMEDIATE, 12)), readFileContent("5: LOAD .  12").second)
+        assertEquals(Instruction(SubCommand(), Operand(DIRECT, 12)), readFileContent("1000: SUB  @  12").second)
+        assertEquals(Instruction(StoreCommand(), Operand(IMMEDIATE, 13)), readFileContent("3: STORE  . 13").second)
+        assertEquals(Instruction(StopCommand(), Operand(IMMEDIATE, 0)), readFileContent("7: STOP .   0").second)
+        assertEquals(Instruction(JZeroCommand(), Operand(IMMEDIATE, 5)), readFileContent("11: JZERO  . 5").second)
+        assertEquals(Instruction(ShlCommand(), Operand(INDIRECT, 10)), readFileContent("12: SHL  * 10").second)
+        assertEquals(Instruction(LoadCommand(), Operand(OFFSET, -5)), readFileContent("33: LOAD +   -5").second)
     }
 
     @Test

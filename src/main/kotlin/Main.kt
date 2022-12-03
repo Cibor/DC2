@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     if (args.size > 0) {
         fileName = args[0]
     } else {
-        fileName = "/Users/konradciborowski/asm/task1.asm"
+        fileName = "/Users/konradciborowski/asm/taskk2.asm"
     }
 
     val taskFileParser = TaskFileParser(fileName)
@@ -22,10 +22,8 @@ fun main(args: Array<String>) {
         computer.memory.insert(entry.key, entry.value)
     }
 
-    var cell = 0
-    for ( instruction in instructions) {
-        computer.memory.insert(cell, instruction)
-        cell++
+    for ( cell in instructions.keys) {
+        computer.memory.insert(cell, instructions.get(cell)!!)
     }
     computer.run()
 }
